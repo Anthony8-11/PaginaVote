@@ -3,24 +3,60 @@
 
 // doPost: procesa los datos del formulario
 function doPost(e) {
-  var ss = SpreadsheetApp.openById('15jR8e6G5r3v9FcZyMeLf-f3OzVo-PalKgi9qhNTgFZo');
-  var sheet = ss.getSheetByName('Votaciones');
-  if (!sheet) {
-    return ContentService.createTextOutput(JSON.stringify({status: 'ERROR', message: 'La hoja "Votaciones" no existe.'}))
-      .setMimeType(ContentService.MimeType.JSON);
+  // Verifica que el Spreadsheet se abra correctamente
+  try {
+    var ss = SpreadsheetApp.openById('15jR8e6G5r3v9FcZyMeLf-f3OzVo-PalKgi9qhNTgFZo');
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'ERROR',
+      message: 'No se pudo abrir el Spreadsheet. Verifica el ID y los permisos. ' + err
+    })).setMimeType(ContentService.MimeType.JSON);
   }
-  var data = e.parameter; // <-- cambio aquí
 
-  sheet.appendRow([
-    new Date(),
-    data.voterName,
-    data.nominado1,
-    data.nominado2,
-    data.nominado3,
-    data.nominado4,
-    data.nominado5,
-    data.nominado6
-  ]);
+  // Verifica que la hoja exista
+  var sheet = ss.getSheetByName('Votaciones');
+  var allSheets = ss.getSheets().map(function(s) { return s.getName(); });
+  Logger.log('Nombres de hojas:', allSheets);
+
+  if (!sheet) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'ERROR',
+      message: 'La hoja "Votaciones" no existe. Nombres encontrados: ' + allSheets.join(', ')
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // Verifica que los datos lleguen correctamente
+  var data = e.parameter;
+  Logger.log('Datos recibidos:', data);
+
+  // Verifica que todos los campos estén presentes
+  var campos = ['voterName', 'nominado1', 'nominado2', 'nominado3', 'nominado4', 'nominado5', 'nominado6'];
+  var faltantes = campos.filter(function(c) { return !data[c]; });
+  if (faltantes.length > 0) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'ERROR',
+      message: 'Faltan campos: ' + faltantes.join(', ')
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // Intenta agregar la fila y captura errores
+  try {
+    sheet.appendRow([
+      new Date(),
+      data.voterName,
+      data.nominado1,
+      data.nominado2,
+      data.nominado3,
+      data.nominado4,
+      data.nominado5,
+      data.nominado6
+    ]);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'ERROR',
+      message: 'No se pudo agregar la fila: ' + err
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
 
   return ContentService.createTextOutput(JSON.stringify({status: 'OK'}))
     .setMimeType(ContentService.MimeType.JSON);
@@ -82,4 +118,39 @@ function doGet(e) {
 
 // Si tienes un error específico, indícalo para darte una solución concreta.
 // Revisa: ID de hoja, nombre de hoja, permisos, publicación como "Cualquiera, incluso anónimo".
+
+function testManual() {
+  // Prueba manual para depuración desde el editor
+  var ss = SpreadsheetApp.openById('15jR8e6G5r3v9FcZyMeLf-f3OzVo-PalKgi9qhNTgFZo');
+  var sheet = ss.getSheetByName('Votaciones');
+  var allSheets = ss.getSheets().map(function(s) { return s.getName(); });
+  Logger.log('Nombres de hojas:', allSheets);
+
+  if (!sheet) {
+    Logger.log('La hoja "Votaciones" no existe. Nombres encontrados: ' + allSheets.join(', '));
+    return;
+  }
+
+  var data = {
+    voterName: "Prueba",
+    nominado1: "N1",
+    nominado2: "N2",
+    nominado3: "N3",
+    nominado4: "N4",
+    nominado5: "N5",
+    nominado6: "N6"
+  };
+
+  sheet.appendRow([
+    new Date(),
+    data.voterName,
+    data.nominado1,
+    data.nominado2,
+    data.nominado3,
+    data.nominado4,
+    data.nominado5,
+    data.nominado6
+  ]);
+  Logger.log('Fila agregada correctamente');
+}
 
