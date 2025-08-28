@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Votaciones</h1>
-        <form id="voteForm" action="https://script.google.com/macros/s/AKfycbwtTBhmlShQovY8xo7PO9-Y1FyYuBQkM4fi8jPQ075YwxoKuADUKEj15tpMYTxW1cMq9Q/exec" method="POST" target="_blank">
+        <form id="voteForm">
             <div class="form-group">
                 <label for="voterName">Nombre del votante</label>
                 <input type="text" id="voterName" name="voterName" required>
@@ -52,8 +52,8 @@
             </div>
             <button type="submit">Enviar Votación</button>
         </form>
+        <div id="responseMsg"></div>
     </div>
-</body>
-</html>
+    <script src="script.js"></script>
 </body>
 </html>
