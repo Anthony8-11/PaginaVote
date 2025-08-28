@@ -9,7 +9,7 @@ document.getElementById('voteForm').addEventListener('submit', async function(e)
         return;
     }
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxAol0uvd3IXM1TL9w6myJ0VKIyMuKpvYEsgrqj1_megI2a6lNHQT16D3n2lUE-l4iVYA/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyAyF_22Yqsu10wasxmOo8nvMLwEiZP1MjwzkMb_BjOUsQprhXLR5eXo35-0ptSfa8i/exec';
 
     try {
         const res = await fetch(scriptURL, {

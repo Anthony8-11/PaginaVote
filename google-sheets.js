@@ -6,7 +6,7 @@ function doPost(e) {
   // Reemplaza por el ID de tu hoja de cálculo
   var ss = SpreadsheetApp.openById('TU_ID_DE_HOJA_DE_CALCULO');
   var sheet = ss.getSheetByName('Votaciones');
-  var data = JSON.parse(e.postData.contents);
+  var data = e.parameter; // <-- cambio aquí
 
   sheet.appendRow([
     new Date(),
