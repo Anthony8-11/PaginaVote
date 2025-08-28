@@ -48,3 +48,8 @@ function doOptions(e) {
   // 4. Haz clic en el ícono de "Web App" y copia la URL que aparece.
   // 5. Usa esa URL en tu frontend (por ejemplo, en script.js como scriptURL).
 
+function doGet(e) {
+  return ContentService.createTextOutput("API de votaciones activa")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
