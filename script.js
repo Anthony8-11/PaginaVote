@@ -17,14 +17,24 @@ document.getElementById('voteForm').addEventListener('submit', async function(e)
         return;
     }
 
-    document.getElementById('responseMsg').textContent = "¡Votación enviada correctamente!";
-    form.reset();
-});
+    // Cambia esta URL por la de tu Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxAol0uvd3IXM1TL9w6myJ0VKIyMuKpvYEsgrqj1_megI2a6lNHQT16D3n2lUE-l4iVYA/exec';
+
+    // Enviar datos como FormData para evitar problemas de CORS
+    const formData = new FormData();
+    formData.append('voterName', data.voterName);
+    formData.append('nominado1', data.nominado1);
+    formData.append('nominado2', data.nominado2);
+    formData.append('nominado3', data.nominado3);
+    formData.append('nominado4', data.nominado4);
+    formData.append('nominado5', data.nominado5);
+    formData.append('nominado6', data.nominado6);
+
     try {
         const res = await fetch(scriptURL, {
             method: 'POST',
-            body: JSON.stringify(data),
-            headers: { 'Content-Type': 'application/json' }
+            body: formData
+            // No pongas headers, fetch los pone automáticamente
         });
         if (res.ok) {
             document.getElementById('responseMsg').textContent = "¡Votación enviada correctamente!";
