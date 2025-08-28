@@ -17,9 +17,9 @@ document.getElementById('voteForm').addEventListener('submit', async function(e)
         return;
     }
 
-    // Cambia esta URL por la de tu Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxAol0uvd3IXM1TL9w6myJ0VKIyMuKpvYEsgrqj1_megI2a6lNHQT16D3n2lUE-l4iVYA/exec';
-
+    document.getElementById('responseMsg').textContent = "¡Votación enviada correctamente!";
+    form.reset();
+});
     try {
         const res = await fetch(scriptURL, {
             method: 'POST',

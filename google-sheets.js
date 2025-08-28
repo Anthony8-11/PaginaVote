@@ -35,5 +35,16 @@ function doOptions(e) {
 // 2. Publica el Web App como "Cualquiera, incluso anónimo".
 // 3. Para desarrollo local, usa un proxy CORS como cors-anywhere.
 
+// Si tu frontend está en HTTPS y el Web App está publicado como "Cualquiera, incluso anónimo",
+// ya puedes enviar datos desde Vercel sin problemas de CORS.
+// No necesitas modificar este archivo.
+
 // Recuerda publicar el script como "Web App" y permitir acceso anónimo.
+
+// ¿Dónde verifico la URL pública del Web App?
+  // 1. Abre el editor de Google Apps Script.
+  // 2. Ve al menú "Implementar" > "Administrar implementaciones".
+  // 3. Busca la implementación activa de tu Web App.
+  // 4. Haz clic en el ícono de "Web App" y copia la URL que aparece.
+  // 5. Usa esa URL en tu frontend (por ejemplo, en script.js como scriptURL).
 
