@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votaciones</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Votaciones</h1>
+        <form id="voteForm">
+            <div class="form-group">
+                <label for="voterName">Nombre del votante</label>
+                <input type="text" id="voterName" name="voterName" required>
+            </div>
+            <!-- Categoría 1 -->
+            <div class="category">
+                <h2>Mejor Innovador</h2>
+                <p>Reconoce a la persona que ha aportado ideas creativas y soluciones nuevas.</p>
+                <input type="text" name="nominado1" placeholder="Nombre del nominado" required>
+            </div>
+            <!-- Categoría 2 -->
+            <div class="category">
+                <h2>Trabajo en Equipo</h2>
+                <p>Premia a quien mejor ha colaborado y apoyado a sus compañeros.</p>
+                <input type="text" name="nominado2" placeholder="Nombre del nominado" required>
+            </div>
+            <!-- Categoría 3 -->
+            <div class="category">
+                <h2>Liderazgo</h2>
+                <p>Destaca a la persona que ha guiado y motivado al grupo.</p>
+                <input type="text" name="nominado3" placeholder="Nombre del nominado" required>
+            </div>
+            <!-- Categoría 4 -->
+            <div class="category">
+                <h2>Mejor Desempeño</h2>
+                <p>Reconoce al que ha tenido resultados sobresalientes.</p>
+                <input type="text" name="nominado4" placeholder="Nombre del nominado" required>
+            </div>
+            <!-- Categoría 5 -->
+            <div class="category">
+                <h2>Actitud Positiva</h2>
+                <p>Premia a quien mantiene siempre una actitud optimista y motivadora.</p>
+                <input type="text" name="nominado5" placeholder="Nombre del nominado" required>
+            </div>
+            <!-- Categoría 6 -->
+            <div class="category">
+                <h2>Compromiso</h2>
+                <p>Reconoce a la persona más dedicada y responsable.</p>
+                <input type="text" name="nominado6" placeholder="Nombre del nominado" required>
+            </div>
+            <button type="submit">Enviar Votación</button>
+        </form>
+        <div id="responseMsg"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
