@@ -3,9 +3,12 @@
 
 // doPost: procesa los datos del formulario
 function doPost(e) {
-  // Reemplaza por el ID de tu hoja de cálculo
   var ss = SpreadsheetApp.openById('15jR8e6G5r3v9FcZyMeLf-f3OzVo-PalKgi9qhNTgFZo');
   var sheet = ss.getSheetByName('Votaciones');
+  if (!sheet) {
+    return ContentService.createTextOutput(JSON.stringify({status: 'ERROR', message: 'La hoja "Votaciones" no existe.'}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
   var data = e.parameter; // <-- cambio aquí
 
   sheet.appendRow([
@@ -76,4 +79,7 @@ function doGet(e) {
 // Google Apps Script Web Apps NO permite peticiones AJAX/fetch cross-domain por CORS.
 // Solo puedes enviar datos usando formularios HTML tradicionales (method="POST").
 // Si necesitas fetch/AJAX, usa un backend intermedio o cambia de plataforma.
+
+// Si tienes un error específico, indícalo para darte una solución concreta.
+// Revisa: ID de hoja, nombre de hoja, permisos, publicación como "Cualquiera, incluso anónimo".
 
