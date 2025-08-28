@@ -1,11 +1,19 @@
 document.getElementById('voteForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+
+    // Deshabilita el botón para evitar doble envío
     const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
+
     const formData = new FormData(form);
 
     // Validación extra (opcional)
     if ([...formData.values()].some(v => v.trim() === "")) {
         document.getElementById('responseMsg').textContent = "Por favor, completa todos los campos.";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Enviar Votación";
         return;
     }
 
@@ -27,5 +35,8 @@ document.getElementById('voteForm').addEventListener('submit', async function(e)
         document.getElementById('responseMsg').textContent = "No se pudo conectar al servidor: " + err.message;
         console.error(err);
     }
+    // Reactiva el botón
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Enviar Votación";
 });
 
