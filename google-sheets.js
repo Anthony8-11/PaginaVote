@@ -39,6 +39,27 @@ function doPost(e) {
     })).setMimeType(ContentService.MimeType.JSON);
   }
 
+  // Si la hoja está vacía, agrega encabezados elegantes antes de la primera fila de datos
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow([
+      'Fecha',
+      'Nombre del votante',
+      'Mejor Innovador',
+      'Trabajo en Equipo',
+      'Liderazgo',
+      'Mejor Desempeño',
+      'Actitud Positiva',
+      'Compromiso'
+    ]);
+    // Opcional: aplica formato a los encabezados
+    var headerRange = sheet.getRange(1, 1, 1, 8);
+    headerRange.setFontWeight('bold');
+    headerRange.setFontColor('#ffb300'); // amarillo luminoso
+    headerRange.setBackground('#232a3d'); // fondo oscuro
+    headerRange.setHorizontalAlignment('center');
+    headerRange.setFontSize(12);
+  }
+
   // Intenta agregar la fila y captura errores
   try {
     sheet.appendRow([
@@ -121,7 +142,7 @@ function doGet(e) {
 
 function testManual() {
   // Prueba manual para depuración desde el editor
-  var ss = SpreadsheetApp.openById('15jR8e6G5r3v9FcZyMeLf-f3OzVo-PalKgi9qhNTgFZo');
+  var ss = SpreadsheetApp.openById('15jR8e6G5r3v9FcZyMeLf-f3OzVo');
   var sheet = ss.getSheetByName('Votaciones');
   var allSheets = ss.getSheets().map(function(s) { return s.getName(); });
   Logger.log('Nombres de hojas:', allSheets);

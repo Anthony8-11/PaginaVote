@@ -12,8 +12,7 @@ body.gradient-bg {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    /* Adapta el gradiente a los colores del logo */
-    background: linear-gradient(135deg, #1abc9c 0%, #2980b9 100%);
+    background: linear-gradient(135deg, #101c3c 0%, #232a3d 100%);
     position: relative;
     overflow-y: auto;
     box-sizing: border-box;
@@ -24,22 +23,70 @@ body.gradient-bg {
     left: 50%;
     width: 400px;
     height: 400px;
-    opacity: 0.13;
+    opacity: 0.07;
     background: url('logo.png') no-repeat center center;
     background-size: contain;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 0;
-    filter: drop-shadow(0 0 24px #1abc9c);
+    filter: none;
+}
+.abstract-shape {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(8px);
+    opacity: 0.5;
+    animation: floatShape 12s infinite alternate cubic-bezier(.57,.21,.69,1.25);
+}
+@keyframes floatShape {
+    0% { transform: translateY(0) scale(1);}
+    100% { transform: translateY(40px) scale(1.08);}
+}
+.shape1 {
+    top: 8%;
+    left: 5%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 30% 30%, #ff61a6 0%, #7f53ff 80%);
+}
+.shape2 {
+    top: 70%;
+    left: 70%;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at 60% 40%, #00f2fe 0%, #4facfe 80%);
+}
+.shape3 {
+    top: 40%;
+    left: 80%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 50% 50%, #43e97b 0%, #38f9d7 80%);
+}
+.shape4 {
+    top: 60%;
+    left: 10%;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle at 60% 60%, #f7b11e 0%, #ff61a6 80%);
+}
+.shape5 {
+    top: 20%;
+    left: 60%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 40% 60%, #a259c6 0%, #7f53ff 80%);
 }
 .container {
-    max-width: 520px;
+    max-width: 540px;
     width: 100%;
-    margin: 30px auto;
-    background: rgba(255,255,255,0.92);
-    border-radius: 18px;
-    box-shadow: 0 6px 32px rgba(41,128,185,0.13), 0 2px 0px #1abc9c inset;
-    padding: 40px 28px;
+    margin: 40px auto;
+    background: #232a3d;
+    border-radius: 24px;
+    box-shadow: 0 8px 40px #101c3c55, 0 2px 0px #ffb300 inset;
+    padding: 48px 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,8 +103,8 @@ body.gradient-bg {
     to { opacity: 1; transform: translateY(0);}
 }
 .logo {
-    width: 120px;
-    margin-bottom: 22px;
+    width: 360px;
+    margin-bottom: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,20 +118,62 @@ body.gradient-bg {
 .logo img {
     width: 100%;
     height: auto;
-    border-radius: 50%;
-    background: transparent; /* Elimina fondo blanco */
+    border-radius: 0;
+    background: transparent;
     padding: 0;
-    box-shadow: 0 4px 24px #1abc9c55, 0 0 0 8px #fff2;
-    filter: drop-shadow(0 0 16px #2980b9);
+    box-shadow: none;
+    filter: none;
 }
 h1 {
     text-align: center;
-    color: #2980b9;
+    color: #e3f2fd;
     font-weight: 700;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
     letter-spacing: 1px;
-    text-shadow: 0 2px 8px #1abc9c33;
+    text-shadow: 0 2px 8px #101c3c;
     animation: fadeInUp 1s cubic-bezier(.57,.21,.69,1.25);
+}
+.main-title {
+    color: #ffb300;
+    font-size: 2.3em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 0;
+    text-shadow: 0 4px 24px #0d1b3f66, 0 1px 4px #ff980055;
+    position: relative;
+}
+.main-title::after {
+    content: "";
+    display: block;
+    margin: 14px auto 0 auto;
+    width: 60px;
+    height: 5px;
+    border-radius: 2.5px;
+    background: linear-gradient(90deg, #ffb300 0%, #ff9800 100%);
+    opacity: 0.85;
+}
+.subtitle {
+    color: #e3f2fd;
+    font-size: 1.35em;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin-bottom: 24px;
+    margin-top: 0;
+    text-shadow: 0 2px 12px #0d1b3f66, 0 1px 4px #ff980055;
+    position: relative;
+}
+.subtitle::after {
+    content: "";
+    display: block;
+    margin: 12px auto 0 auto;
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #ffb300 0%, #ff9800 100%);
+    opacity: 0.7;
 }
 .form-group, .category {
     width: 100%;
@@ -93,105 +182,151 @@ h1 {
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
-    color: #1abc9c;
+    color: #ffb300;
 }
 .form-group input,
 .category input {
     width: 100%;
-    padding: 10px;
-    border: 1.5px solid #b2bec3;
-    border-radius: 8px;
+    padding: 12px;
+    border: 1.5px solid #4fc3f7;
+    border-radius: 10px;
     font-size: 1em;
-    background: #f5f6fa;
-    margin-bottom: 8px;
+    background: #2e3a55;
+    margin-bottom: 10px;
     transition: border 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 4px #2980b922;
-    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+    box-shadow: 0 1px 4px #101c3c22;
+    box-sizing: border-box;
+    color: #e3f2fd;
 }
-.form-group input::placeholder,
-.category input::placeholder {
-    color: #636e72;
-    opacity: 1;
-    font-size: 0.98em;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+
+.form-group input:focus, .category input:focus {
+    border-color: #ff9800;
+    outline: none;
+    box-shadow: 0 0 8px #ffb30055;
+    background: #232a3d;
 }
 .category {
-    background: rgba(41,128,185,0.09);
-    border-radius: 14px;
-    padding: 22px 16px;
-    margin-bottom: 22px;
-    box-shadow: 0 6px 24px #2980b933, 0 2px 0px #1abc9c inset;
+    background: #232a3d;
+    border-radius: 20px;
+    padding: 28px 20px;
+    margin-bottom: 32px;
+    box-shadow:
+        0 8px 32px 0 #101c3c55,
+        0 2px 0px #ffb300 inset,
+        0 1px 8px 0 #ff980022;
     position: relative;
-    transition: transform 0.25s cubic-bezier(.57,.21,.69,1.25), box-shadow 0.25s;
-    will-change: transform, box-shadow;
-    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(.57,.21,.69,1.25), box-shadow 0.25s, background 0.3s;
+    will-change: transform, box-shadow, background;
+    overflow: visible;
     animation: fadeInUp 0.7s cubic-bezier(.57,.21,.69,1.25);
+    border: 2.5px solid #4fc3f7; /* contorno azul claro */
     box-sizing: border-box;
+    text-align: center;
 }
 .category::before {
     content: "";
     position: absolute;
-    top: -30px;
-    right: -30px;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #1abc9c 0%, #2980b9 100%);
-    opacity: 0.18;
+    top: -24px;
+    left: -24px;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, #ffb300 0%, transparent 70%);
+    opacity: 0.10;
     border-radius: 50%;
     z-index: 0;
     pointer-events: none;
 }
 .category:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 12px 32px #2980b944, 0 2px 0px #1abc9c inset;
-    background: rgba(41,128,185,0.13);
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 16px 48px #ff980044, 0 2px 0px #222 inset;
+    background: #2e3a55;
 }
 .category h2 {
     margin-top: 0;
-    color: #1abc9c;
-    font-size: 1.1em;
-    font-weight: 600;
-    text-shadow: 0 1px 4px #2980b922;
-    z-index: 1;
+    margin-bottom: 10px;
+    color: #ffb300;
+    font-size: 1.35em;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-shadow: 0 2px 12px #0d1b3f66, 0 1px 4px #ff980055;
     position: relative;
 }
+.category h2::after {
+    content: "";
+    display: block;
+    margin: 10px auto 0 auto;
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #ffb300 0%, #ff9800 100%);
+    opacity: 0.85;
+}
 .category p {
-    margin-bottom: 10px;
-    color: #636e72;
-    font-size: 0.98em;
+    margin-bottom: 12px;
+    color: #b0bec5;
+    font-size: 1.05em;
     z-index: 1;
     position: relative;
+    text-align: center;
+    text-shadow: none;
 }
 button[type="submit"] {
     width: 100%;
-    padding: 14px;
-    background: linear-gradient(90deg, #2980b9 0%, #1abc9c 100%);
-    color: #fff;
+    padding: 16px;
+    background: linear-gradient(90deg, #ffb300 0%, #ff9800 100%);
+    color: #232a3d;
     border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 600;
+    border-radius: 12px;
+    font-size: 1.18em;
+    font-weight: 800;
+    letter-spacing: 1.5px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 18px;
+    box-shadow: 0 4px 24px #ffb30055, 0 1px 4px #0d1b3f33;
     transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    box-shadow: 0 2px 8px #1abc9c33;
     will-change: transform, box-shadow;
     animation: fadeInUp 1.2s cubic-bezier(.57,.21,.69,1.25);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+button[type="submit"]::after {
+    content: "";
+    display: block;
+    margin: 10px auto 0 auto;
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #ffb300 0%, #ff9800 100%);
+    opacity: 0.7;
 }
 button[type="submit"]:hover {
-    background: linear-gradient(90deg, #1abc9c 0%, #2980b9 100%);
-    box-shadow: 0 4px 16px #2980b944;
+    background: linear-gradient(90deg, #ff9800 0%, #ffb300 100%);
+    box-shadow: 0 8px 32px #ff9800aa;
     transform: scale(1.04);
 }
 #responseMsg {
-    margin-top: 18px;
+    margin-top: 20px;
     text-align: center;
     font-weight: bold;
-    color: #1abc9c;
-    font-size: 1.05em;
+    color: #ffb300;
+    font-size: 1.08em;
     animation: fadeInUp 1.3s cubic-bezier(.57,.21,.69,1.25);
+}
+.voter-label-group {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.voter-label {
+    display: block;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #ffb300;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 12px #0d1b3f66, 0 1px 4px #ff980055;
 }
 
 /* Responsividad */
@@ -206,7 +341,7 @@ button[type="submit"]:hover {
         box-sizing: border-box;
     }
     .logo {
-        width: 90px;
+        width: 300px;
     }
     .watermark-logo {
         width: 180px;

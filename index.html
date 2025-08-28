@@ -7,15 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="gradient-bg">
+    <div class="abstract-shape shape1"></div>
+    <div class="abstract-shape shape2"></div>
+    <div class="abstract-shape shape3"></div>
+    <div class="abstract-shape shape4"></div>
+    <div class="abstract-shape shape5"></div>
     <div class="watermark-logo"></div>
     <div class="container">
         <div class="logo">
             <img src="logo.png" alt="Logo" />
         </div>
-        <h1>Votaciones</h1>
+        <h1 class="main-title">Votaciones</h1>
+        <h2 class="subtitle">Embajadores destacados</h2>
         <form id="voteForm">
-            <div class="form-group">
-                <label for="voterName">Nombre del votante</label>
+            <div class="form-group voter-label-group">
+                <label for="voterName" class="voter-label">Nombre del votante</label>
                 <input type="text" id="voterName" name="voterName" required>
             </div>
             <!-- Categoría 1 -->
@@ -32,31 +38,35 @@
             </div>
             <!-- Categoría 3 -->
             <div class="category">
-                <h2>Liderazgo</h2>
-                <p>Destaca a la persona que ha guiado y motivado al grupo.</p>
+                <h2>Netflix</h2>
+                <p>Para el/la que siempre tiene historias o dramas que contar.</p>
                 <input type="text" name="nominado3" placeholder="Nombre del nominado" required>
             </div>
             <!-- Categoría 4 -->
             <div class="category">
-                <h2>Mejor Desempeño</h2>
-                <p>Reconoce al que ha tenido resultados sobresalientes.</p>
+                <h2>El amiguero </h2>
+                <p>Para el/la que se lleva bien con todos.</p>
                 <input type="text" name="nominado4" placeholder="Nombre del nominado" required>
             </div>
             <!-- Categoría 5 -->
             <div class="category">
-                <h2>Actitud Positiva</h2>
+                <h2>El más fashion</h2>
                 <p>Premia a quien mantiene siempre una actitud optimista y motivadora.</p>
                 <input type="text" name="nominado5" placeholder="Nombre del nominado" required>
             </div>
             <!-- Categoría 6 -->
             <div class="category">
-                <h2>Compromiso</h2>
-                <p>Reconoce a la persona más dedicada y responsable.</p>
+                <h2>El más espiritual</h2>
+                <p>El que siempre tiene un versículo listo y motiva a los demás.</p>
                 <input type="text" name="nominado6" placeholder="Nombre del nominado" required>
             </div>
             <button type="submit">Enviar Votación</button>
         </form>
         <div id="responseMsg"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
     </div>
     <script src="script.js"></script>
 </body>
