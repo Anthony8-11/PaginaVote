@@ -4,7 +4,7 @@
 // doPost: procesa los datos del formulario
 function doPost(e) {
   // Reemplaza por el ID de tu hoja de cálculo
-  var ss = SpreadsheetApp.openById('TU_ID_DE_HOJA_DE_CALCULO');
+  var ss = SpreadsheetApp.openById('15jR8e6G5r3v9FcZyMeLf-f3OzVo-PalKgi9qhNTgFZo');
   var sheet = ss.getSheetByName('Votaciones');
   var data = e.parameter; // <-- cambio aquí
 
@@ -52,4 +52,23 @@ function doGet(e) {
   return ContentService.createTextOutput("API de votaciones activa")
     .setMimeType(ContentService.MimeType.TEXT);
 }
+
+// NOTA: No puedes especificar el dominio permitido para CORS en Google Apps Script Web Apps.
+// El control de acceso se realiza solo mediante la configuración de publicación del Web App.
+// Google Apps Script no permite modificar el header Access-Control-Allow-Origin.
+
+// Checklist para descartar problemas de CORS:
+// 1. El Web App está publicado como "Cualquiera, incluso anónimo".
+// 2. Estás usando la URL pública actual del Web App en tu frontend.
+// 3. Tu frontend está desplegado en HTTPS (por ejemplo, Vercel).
+// 4. El método de envío en el frontend es POST usando FormData (NO JSON).
+// 5. El backend usa e.parameter para recibir los datos.
+// 6. No hay headers personalizados en fetch (NO 'Content-Type': 'application/json').
+// 7. La hoja de cálculo existe y tiene el nombre correcto.
+// 8. El ID de la hoja de cálculo es el correcto.
+// 9. No hay errores de permisos en la hoja de cálculo.
+// 10. No hay bloqueos por extensiones del navegador (prueba en modo incógnito).
+
+// Si todo esto está correcto y el error persiste, es una limitación de Google Apps Script con CORS.
+// No hay solución definitiva desde el código, solo seguir las recomendaciones anteriores.
 
