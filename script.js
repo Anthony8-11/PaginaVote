@@ -9,8 +9,6 @@ document.getElementById('voteForm').addEventListener('submit', async function(e)
         return;
     }
 
-    // Verifica que la URL en scriptURL sea la pública y actual del Web App.
-    // Vuelve a desplegar el Web App si hiciste cambios.
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwcglPkhQCO-Qv5FH7EousrYmY87jsiY-jS6ahrNoO7R-6XVVOWJDq1Xo2qD-D15cYpJA/exec';
 
     try {

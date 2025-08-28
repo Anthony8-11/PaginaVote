@@ -72,3 +72,8 @@ function doGet(e) {
 // Si todo esto está correcto y el error persiste, es una limitación de Google Apps Script con CORS.
 // No hay solución definitiva desde el código, solo seguir las recomendaciones anteriores.
 
+// IMPORTANTE:
+// Google Apps Script Web Apps NO permite peticiones AJAX/fetch cross-domain por CORS.
+// Solo puedes enviar datos usando formularios HTML tradicionales (method="POST").
+// Si necesitas fetch/AJAX, usa un backend intermedio o cambia de plataforma.
+
