@@ -328,6 +328,16 @@ button[type="submit"]:hover {
     letter-spacing: 1px;
     text-shadow: 0 2px 12px #0d1b3f66, 0 1px 4px #ff980055;
 }
+.heading-note {
+    text-align: center;
+    color: #e3f2fd;
+    font-size: 1.08em;
+    font-weight: 500;
+    margin-bottom: 28px;
+    margin-top: -10px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 8px #101c3c55;
+}
 
 /* Responsividad */
 @media (max-width: 600px) {

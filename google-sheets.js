@@ -30,7 +30,23 @@ function doPost(e) {
   Logger.log('Datos recibidos:', data);
 
   // Verifica que todos los campos estén presentes
-  var campos = ['voterName', 'nominado1', 'nominado2', 'nominado3', 'nominado4', 'nominado5', 'nominado6'];
+  var campos = ['voterName', 
+    'nominado1', 
+    'nominado2', 
+    'nominado3', 
+    'nominado4', 
+    'nominado5', 
+    'nominado6', 
+    'nominado7', 
+    'nominado8', 
+    'nominado9', 
+    'nominado10', 
+    'nominado11', 
+    'nominado12', 
+    'nominado13', 
+    'nominado14', 
+    'nominado15', 
+    'nominado16'];
   var faltantes = campos.filter(function(c) { return !data[c]; });
   if (faltantes.length > 0) {
     return ContentService.createTextOutput(JSON.stringify({
@@ -70,7 +86,17 @@ function doPost(e) {
       data.nominado3,
       data.nominado4,
       data.nominado5,
-      data.nominado6
+      data.nominado6,
+      data.nominado7,
+      data.nominado8,
+      data.nominado9,
+      data.nominado10,
+      data.nominado11,
+      data.nominado12,
+      data.nominado13,
+      data.nominado14,
+      data.nominado15,
+      data.nominado16
     ]);
   } catch (err) {
     return ContentService.createTextOutput(JSON.stringify({
@@ -142,7 +168,7 @@ function doGet(e) {
 
 function testManual() {
   // Prueba manual para depuración desde el editor
-  var ss = SpreadsheetApp.openById('15jR8e6G5r3v9FcZyMeLf-f3OzVo');
+  var ss = SpreadsheetApp.openById('15jR8e6G5r3v9FcZyMeLf-f3OzVo-PalKgi9qhNTgFZo');
   var sheet = ss.getSheetByName('Votaciones');
   var allSheets = ss.getSheets().map(function(s) { return s.getName(); });
   Logger.log('Nombres de hojas:', allSheets);

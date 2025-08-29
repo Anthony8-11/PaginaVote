@@ -17,7 +17,7 @@ document.getElementById('voteForm').addEventListener('submit', async function(e)
         return;
     }
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwtTBhmlShQovY8xo7PO9-Y1FyYuBQkM4fi8jPQ075YwxoKuADUKEj15tpMYTxW1cMq9Q/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyZ3fwYq4uLMMFHOeFVHJfBFpCIUo4rCiFI3e2Lz68kZ1kd_XHluNLpraNza8KbHso/exec';
 
     try {
         const res = await fetch(scriptURL, {
