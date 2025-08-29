@@ -43,8 +43,7 @@ function doPost(e) {
     'nominado10', 
     'nominado11', 
     'nominado12', 
-    'nominado13', 
-    'nominado14', 
+    'nominado13',  
     'nominado15', 
     'nominado16'];
   var faltantes = campos.filter(function(c) { return !data[c]; });
@@ -94,7 +93,6 @@ function doPost(e) {
       data.nominado11,
       data.nominado12,
       data.nominado13,
-      data.nominado14,
       data.nominado15,
       data.nominado16
     ]);
